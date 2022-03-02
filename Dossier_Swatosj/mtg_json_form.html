@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>MTGJSON Database v1 for Polo project</title>
+		<style type="text/css" media="screen">
+			h1 {
+				font-size: 54px;
+				background: linear-gradient(180deg, rgb(68, 57, 241) 15%, rgb(34, 139, 125) 50%, rgb(11, 233, 148) 85%);
+				background-clip: text;
+				-webkit-text-fill-color: transparent;
+			}
+		</style>
+	</head>
+	<body>
+		<h1><u>MTGJSON Database v1</u></h1>
+		<h2 style="color: lightseagreen"><u>Fonctionnalités de cette version</u></h2>
+		<ul> 
+			<li>Récupère les données des cartes dans la base de données JSON d'un format d'extension donné (Modern, Legacy...)</li>
+			<li>Enregistre les informations des cartes dans la base de données locale <b>cartes</b> (<i>configuré au préalable</i>)</li>
+			<li>Le nombre d'extensions sauvegardées et le nombre de cartes traités par chaque INSERT sont paramétrables</li>
+			<li>Affichage du temps de la procédure et de la moyenne par extension</li>
+		</ul>
+		<br>
+		<h4><u>Exercice du jour</u></h4>
+		<p>Créer un input checkbox HTML qui permet de randomiser les extensions parcourues du format. Il suffira d'opérer une manipulation sur le tableau <b>$keys</b> après que celui-ci ai été rempli.
+		<br>
+		<div style="text-align: center;">
+			<h2 style="color: green"><u>Paramètres</u></h2>
+			<form action="mtg_json_script.php" method="post">
+				Format à récupérer en local : 
+				<select name="format">
+					<option value="Standard">Standard</option>
+					<option value="Modern">Modern</option>
+					<option value="Legacy">Legacy</option>
+				</select>
+				<br><br>
+				Nombre d'extensions à récupérer : <input type="number" name="nbExtensions" maxlength="2" size="3">
+				<br><br>
+				Nombre d'insertions par reqûete SQL : <input type="number" name="nbInsertPerQuery" maxlength="3" size="3">
+				<br><br>
+				<label for="showImage">Afficher les miniatures des cartes sauvegardées : </label>
+				<input type="checkbox" id="showImage" name="showCardImage">
+				<br><br>
+				<input type="submit">
+			</form>
+		</div>
+
+	</body>
+</html>
